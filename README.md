@@ -14,7 +14,7 @@ This method abuses the native WinRM (Windows Remote Management) protocol to esta
 
 ### Exploratory Analysis and Reconnaissance (Data Profiling)
 
-<img src="imagesPSempire/print1.png" width="900">
+<img src="images/print1.png" width="900">
 
 The initial triage was performed on a critical mass of data to understand the duration of the attack, the affected targets, and the quality of the available logs.
 
@@ -32,7 +32,7 @@ The massive concentration of hundreds of events within a single second confirms 
 
 The volumetric distribution of activities by Host revealed the threat's contact surface:
 
-<img src="imagesPSempire/print2.png" width="300">
+<img src="images/print2.png" width="300">
 
 ### Maximum Criticality Alert
 
@@ -40,13 +40,13 @@ The presence of the Domain Controller (MORDORDC) with 3.2% of activity indicates
 
 A preliminary verification of the Channel field revealed that the telemetry is composed of Sysmon logs, Windows Security audit logs, among other system subchannels.
 
-<img src="imagesPSempire/print3.png" with="300">
+<img src="images/print3.png" with="300">
 
 ### Telemetry Distribution (Top Event IDs)
 
 The volumetric extraction of event codes mapped the framework's actions within the Windows ecosystem:
 
-<img src="imagesPSempire/print4.png" with="300">
+<img src="images/print4.png" with="300">
 
 ### Identified Telemetry Gap
 
@@ -102,11 +102,11 @@ the following distribution of source and target images was identified:
 
 ### Source Processes (SourceImage)
 
-<img src="imagesPSempire/print5.png" with="300">
+<img src="images/print5.png" with="300">
 
 ### Target Processes (TargetImage)
 
-<img src="imagesPSempire/print6.png" with="300">
+<img src="images/print6.png" with="300">
 
 ### Post-Compromise Reconnaissance Signature
 
@@ -120,11 +120,11 @@ Confirmation of execution and the payload's internal behavior were tracked throu
 
 By isolating the affected Host (333 activities out of 344 total), the IMAGE field revealed which executables triggered memory-resident payloads:
 
-<img src="imagesPSempire/print7.png" with="300">
+<img src="images/print7.png" with="300">
 
 The PowerShell interpreter (powershell.exe) led the ranking with 32.7% of actions. Mapping the associated ImageLoaded field made it possible to read the signature of injected libraries (with 82.9% distributed in the long tail grouped under the Other label).
 
-<img src="imagesPSempire/print8.png" with="300">
+<img src="images/print8.png" with="300">
 
 ## Technical Analysis of the Identified DLLs
 
